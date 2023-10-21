@@ -10,23 +10,22 @@ public class SprinklerProgram {
         // and print the output.
         Scanner scanner = new Scanner(System.in);
         double L;
-        double M;
+        double W;
         int N;
         L = getNextDouble(scanner);
-        M = getNextDouble(scanner);
+        W = getNextDouble(scanner);
         N = getNextInt(scanner);
         scanner.nextLine();
 
         // Read the next N lines, each line contains two decimal numbers
         // separated by a space
-        List<double[]> sprinklerLocations = new ArrayList<>();
+        List<Sprinkler> sprinklerLocations = new ArrayList<>();
         for (int i = 0; i < N; i++) {
             // verify the first two elements of lineArray are a decimal number
             double x = getNextDouble(scanner);
             double y = getNextDouble(scanner);
 
-            double[] sprinklerLocation = new double[] {x, y};
-            sprinklerLocations.add(sprinklerLocation);
+            sprinklerLocations.add(new Sprinkler(x, y, L, W));
             if (scanner.hasNextLine()) {
                 scanner.nextLine();
             }
@@ -35,12 +34,12 @@ public class SprinklerProgram {
         // Print all the input lines
         System.out.println("Given input:");
         System.out.println("L:" + L);
-        System.out.println("M:" + M);
+        System.out.println("W:" + W);
         System.out.println("N:" + N);
         System.out.println("Sprinkler locations:");
         // print all the sprinkler locations
-        for (double[] sprinklerLocation : sprinklerLocations) {
-            System.out.println(sprinklerLocation[0] + "," + sprinklerLocation[1]);
+        for (Sprinkler sprinkler : sprinklerLocations) {
+            System.out.println(sprinkler);
         }
     }
 
