@@ -130,4 +130,154 @@ public class SprinklerCalculatorTest {
         Garden garden = new Garden(8.0, 6.0, sprinklerList);
         Assert.assertEquals(0, SprinklerCalculator.calculateMinimumSprinklers(garden));
     }
+
+    //////////////////////////////////////////
+    @Test
+    public void test_givenOneSprinklerCoversWholeGarden_expectOne() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(0.0, 5.0));
+        Garden garden = new Garden(10.0, 5.0, sprinklerList);
+        Assert.assertEquals(0, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenTwoNonOverlappingSprinklers_expectTwo() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(1.0, 2.0));
+        sprinklerList.add(new Sprinkler(6.0, 2.0));
+        Garden garden = new Garden(10.0, 5.0, sprinklerList);
+        Assert.assertEquals(0, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenTwoOverlappingSprinklers_expectOne() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(2.0, 4.0));
+        sprinklerList.add(new Sprinkler(3.0, 4.0));
+        Garden garden = new Garden(10.0, 5.0, sprinklerList);
+        Assert.assertEquals(0, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenTwoSprinklersBothNotCovered1_expectZero() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(1.0, 6.0));
+        sprinklerList.add(new Sprinkler(2.0, 2.0));
+        Garden garden = new Garden(8.0, 6.0, sprinklerList);
+        Assert.assertEquals(0, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenTwoSprinklerBothNotCovered_expectZero() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(1.0, 6.0));
+        sprinklerList.add(new Sprinkler(2.0, 2.0));
+        Garden garden = new Garden(8.0, 6.0, sprinklerList);
+        Assert.assertEquals(0, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenTwoSprinklerCoveringPartially1_expectOne() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(0.0, 5.0));
+        sprinklerList.add(new Sprinkler(6.0, 6.0));
+        Garden garden = new Garden(10.0, 5.0, sprinklerList);
+        Assert.assertEquals(2, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenTwoSprinklerCoveringPartially_expectOne() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(3.0, 4.0));
+        sprinklerList.add(new Sprinkler(6.0, 4.0));
+        Garden garden = new Garden(10.0, 5.0, sprinklerList);
+        Assert.assertEquals(0, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenFourSprinklersCoveringPartially_expectTwo() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(2.0, 3.0));
+        sprinklerList.add(new Sprinkler(4.0, 3.0));
+        sprinklerList.add(new Sprinkler(7.0, 4.0));
+        sprinklerList.add(new Sprinkler(8.0, 3.0));
+        Garden garden = new Garden(10.0, 5.0, sprinklerList);
+        Assert.assertEquals(0, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenFiveSprinklersCoveringPartially_expectTwo() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(2.0, 3.0));
+        sprinklerList.add(new Sprinkler(4.0, 3.0));
+        sprinklerList.add(new Sprinkler(7.0, 3.0));
+        sprinklerList.add(new Sprinkler(8.0, 2.0));
+        sprinklerList.add(new Sprinkler(9.0, 2.0));
+        Garden garden = new Garden(10.0, 1.0, sprinklerList);
+        Assert.assertEquals(4, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenTwoSprinklersInCorner1_expectTwo() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(0.0, 2.0));
+        sprinklerList.add(new Sprinkler(10.0, 2.0));
+        Garden garden = new Garden(10.0, 5.0, sprinklerList);
+        Assert.assertEquals(0, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenTwoSprinklersInCorner_expectTwo() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(0.0, 3.0));
+        sprinklerList.add(new Sprinkler(12.0, 3.0));
+        Garden garden = new Garden(12.0, 6.0, sprinklerList);
+        Assert.assertEquals(0, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenTwoOverlappingSprinklersAtEdges1_expectOne() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(0.0, 10.0));
+        sprinklerList.add(new Sprinkler(8.0, 10.0));
+        Garden garden = new Garden(10.0, 5.0, sprinklerList);
+        Assert.assertEquals(2, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenTwoOverlappingSprinklersAtEdges_expectOne() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(0.0, 5.0));
+        sprinklerList.add(new Sprinkler(8.0, 5.0));
+        Garden garden = new Garden(10.0, 5.0, sprinklerList);
+        Assert.assertEquals(2, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenTwoSprinklersCoveringPartially1_expectOne() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(3.0, 5.0));
+        sprinklerList.add(new Sprinkler(8.0, 5.0));
+        Garden garden = new Garden(10.0, 5.0, sprinklerList);
+        Assert.assertEquals(2, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenTwo_OneSmallerThanWidth_OneCoveredPartially_expectZero() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(2.0, 2.0));
+        sprinklerList.add(new Sprinkler(6.0, 5.0));
+        Garden garden = new Garden(10.0, 5.0, sprinklerList);
+        Assert.assertEquals(0, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
+    @Test
+    public void test_givenTwoSprinklersBothNotCovered_expectZero() {
+        List<Sprinkler> sprinklerList = new ArrayList<>();
+        sprinklerList.add(new Sprinkler(1.0, 6.0));
+        sprinklerList.add(new Sprinkler(2.0, 2.0));
+        Garden garden = new Garden(8.0, 6.0, sprinklerList);
+        Assert.assertEquals(0, SprinklerCalculator.calculateMinimumSprinklers(garden));
+    }
+
 }

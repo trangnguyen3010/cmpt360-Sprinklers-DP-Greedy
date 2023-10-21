@@ -12,14 +12,13 @@ public class Garden {
         this.gardenLength = gardenLength;
         this.gardenWidth = gardenWidth;
         this.sprinklers = sprinklers;
-        updateStartEndForSprinkler();
     }
 
     public List<Sprinkler> getSprinklers() {
         return sprinklers;
     }
 
-    private void updateStartEndForSprinkler() {
+    public void updateStartEndForSprinkler() {
         this.sprinklers.forEach(sprinkler -> sprinkler.updateStartEnd(this.gardenLength, this.gardenWidth));
     }
 

@@ -15,9 +15,14 @@ public class Sprinkler implements Comparable<Sprinkler>{
     }
 
     public void updateStartEnd(final double gardenLength, final double gardenWidth){
-        double halfLength = Math.sqrt(Math.pow(this.radius, 2) - Math.pow(gardenWidth/2, 2));
-        this.start = max(0, centre - halfLength);
-        this.end = min(gardenLength, centre + halfLength);
+        if (this.radius < gardenWidth/2) {
+            this.start = this.centre;
+            this.end = this.centre;
+        } else {
+            double halfLength = Math.sqrt(Math.pow(this.radius, 2) - Math.pow(gardenWidth / 2, 2));
+            this.start = max(0, centre - halfLength);
+            this.end = min(gardenLength, centre + halfLength);
+        }
     }
 
     public double getStart() {

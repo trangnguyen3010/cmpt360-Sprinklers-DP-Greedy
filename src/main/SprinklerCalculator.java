@@ -4,6 +4,7 @@ import java.util.List;
 
 public class SprinklerCalculator {
     public static int calculateMinimumSprinklers(final Garden garden) {
+        garden.updateStartEndForSprinkler();
         garden.sortSprinklersByStartThenByReversedOrderOfRadius();
         List<Sprinkler> sprinklers = garden.getSprinklers();
         double lengthToCover = (int) garden.getGardenLength();
@@ -51,11 +52,15 @@ public class SprinklerCalculator {
     }
 
     private static boolean isNotPossible(final List<Sprinkler> sprinklers) {
-        for (int i = 0; i < sprinklers.size() - 1; i++) {
-            if (isNotContinuous(sprinklers.get(i).getEnd(), sprinklers.get(i + 1).getStart())) {
+        double end = 0;
+        int i = 0;
+        do {
+            if (isNotContinuous(end, sprinklers.get(i).getStart())) {
                 return true;
             }
-        }
+            end = sprinklers.get(i).getEnd();
+            i++;
+        } while (i < sprinklers.size());
         return false;
     }
 
