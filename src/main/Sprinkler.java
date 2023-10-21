@@ -3,7 +3,7 @@ package main;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
-public class Sprinkler {
+public class Sprinkler implements Comparable<Sprinkler>{
     private final double centre;
     private final double radius;
     private final double start;
@@ -13,7 +13,6 @@ public class Sprinkler {
         this.centre = x;
         this.radius = y;
         double halfLength = Math.sqrt(Math.pow(radius, 2) - Math.pow(gardenWidth /2, 2));
-        System.out.println(halfLength);
         this.start = max(0, centre - halfLength);
         this.end = min(gardenLength, centre + halfLength);
     }
@@ -34,5 +33,16 @@ public class Sprinkler {
                 ", start=" + start +
                 ", end=" + end +
                 '}';
+    }
+
+    @Override
+    public int compareTo(final Sprinkler o) {
+        if (this.centre < o.centre) {
+            return -1;
+        } else if (this.centre > o.centre) {
+            return 1;
+        } else {
+            return (-1) * Double.compare(this.radius, o.radius);
+        }
     }
 }

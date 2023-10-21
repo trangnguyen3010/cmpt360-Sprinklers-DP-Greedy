@@ -31,16 +31,10 @@ public class SprinklerProgram {
             }
         }
 
+        SprinkerCalculator calculator = new SprinkerCalculator(L, W, sprinklerLocations);
         // Print all the input lines
         System.out.println("Given input:");
-        System.out.println("L:" + L);
-        System.out.println("W:" + W);
-        System.out.println("N:" + N);
-        System.out.println("Sprinkler locations:");
-        // print all the sprinkler locations
-        for (Sprinkler sprinkler : sprinklerLocations) {
-            System.out.println(sprinkler);
-        }
+        System.out.println(calculator);
     }
 
     private static int getNextInt(final Scanner scanner) {
