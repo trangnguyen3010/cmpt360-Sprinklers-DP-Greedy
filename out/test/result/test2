@@ -1,0 +1,8 @@
+Given input:
+SprinkerCalculator{
+gardenLength=2.0,
+gardenWidth=2.0,
+sprinklers=[
+Sprinkler{centre=1.0, radius=2.0, start=0.0, end=2.0}
+]
+}
