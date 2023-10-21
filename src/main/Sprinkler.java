@@ -20,12 +20,8 @@ public class Sprinkler implements Comparable<Sprinkler>{
         this.end = min(gardenLength, centre + halfLength);
     }
 
-    public double getCentre() {
-        return centre;
-    }
-
-    public double getRadius() {
-        return radius;
+    public double getStart() {
+        return start;
     }
 
     @Override
@@ -40,12 +36,14 @@ public class Sprinkler implements Comparable<Sprinkler>{
 
     @Override
     public int compareTo(final Sprinkler o) {
-        if (this.centre < o.centre) {
-            return -1;
-        } else if (this.centre > o.centre) {
-            return 1;
+        if (this.start != o.start) {
+            return Double.compare(this.start, o.start);
         } else {
-            return (-1) * Double.compare(this.radius, o.radius);
+            return (-1) * Double.compare(o.radius, this.radius);
         }
+    }
+
+    public double getEnd() {
+        return end;
     }
 }

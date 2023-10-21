@@ -6,19 +6,31 @@ import java.util.stream.Collectors;
 public class Garden {
     private final double gardenLength;
     private final double gardenWidth;
-    private final List<Sprinkler> sprinklers;
+    private List<Sprinkler> sprinklers;
 
     public Garden(final double gardenLength, final double gardenWidth, final List<Sprinkler> sprinklers) {
         this.gardenLength = gardenLength;
         this.gardenWidth = gardenWidth;
-        this.sprinklers = sprinklers.stream()
-                .sorted(Sprinkler::compareTo)
-                .collect(Collectors.toList());
+        this.sprinklers = sprinklers;
         updateStartEndForSprinkler();
     }
 
-    private void updateStartEndForSprinkler(){
+    public List<Sprinkler> getSprinklers() {
+        return sprinklers;
+    }
+
+    private void updateStartEndForSprinkler() {
         this.sprinklers.forEach(sprinkler -> sprinkler.updateStartEnd(this.gardenLength, this.gardenWidth));
+    }
+
+    public void sortSprinklersByStartThenByReversedOrderOfRadius() {
+        this.sprinklers = sprinklers.stream()
+                .sorted(Sprinkler::compareTo)
+                .collect(Collectors.toList());
+    }
+
+    public double getGardenLength() {
+        return gardenLength;
     }
 
     @Override
