@@ -25,13 +25,13 @@ public class SprinklerProgram {
             double x = getNextDouble(scanner);
             double y = getNextDouble(scanner);
 
-            sprinklerLocations.add(new Sprinkler(x, y, L, W));
+            sprinklerLocations.add(new Sprinkler(x, y));
             if (scanner.hasNextLine()) {
                 scanner.nextLine();
             }
         }
 
-        SprinkerCalculator calculator = new SprinkerCalculator(L, W, sprinklerLocations);
+        Garden calculator = new Garden(L, W, sprinklerLocations);
         // Print all the input lines
         System.out.println("Given input:");
         System.out.println(calculator);

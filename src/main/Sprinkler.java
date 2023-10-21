@@ -6,13 +6,16 @@ import static java.lang.Math.min;
 public class Sprinkler implements Comparable<Sprinkler>{
     private final double centre;
     private final double radius;
-    private final double start;
-    private final double end;
+    private double start;
+    private double end;
 
-    public Sprinkler(final double x, final double y, final double gardenLength, final double gardenWidth) {
-        this.centre = x;
-        this.radius = y;
-        double halfLength = Math.sqrt(Math.pow(radius, 2) - Math.pow(gardenWidth /2, 2));
+    public Sprinkler(final double centre, final double radius) {
+        this.centre = centre;
+        this.radius = radius;
+    }
+
+    public void updateStartEnd(final double gardenLength, final double gardenWidth){
+        double halfLength = Math.sqrt(Math.pow(this.radius, 2) - Math.pow(gardenWidth/2, 2));
         this.start = max(0, centre - halfLength);
         this.end = min(gardenLength, centre + halfLength);
     }
