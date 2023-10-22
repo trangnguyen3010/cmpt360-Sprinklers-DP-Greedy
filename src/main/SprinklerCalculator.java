@@ -2,6 +2,8 @@ package main;
 
 import java.util.List;
 
+import static java.lang.Math.max;
+
 public class SprinklerCalculator {
     public static int calculateMinimumSprinklers(final Garden garden) {
         garden.updateStartEndForSprinkler();
@@ -23,27 +25,23 @@ public class SprinklerCalculator {
             memoi[0][i] = firstSprinkler.getEnd();
         }
 
-        int count = 1;
         double current = firstSprinkler.getEnd();
         if (current >= lengthToCover) {
-            return count;
+            return 1;
         }
 
         for (int numSprinkler = 1; numSprinkler < size; numSprinkler++) {
             for (int sprinkler = 1; sprinkler < size; sprinkler++) {
                 Sprinkler currentSprinkler = sprinklers.get(sprinkler);
-                current = currentSprinkler.getEnd();
-                double above = memoi[sprinkler - 1][numSprinkler];
-                if (current > above) {
-                    memoi[sprinkler][numSprinkler] = current;
-                    count++;
-                }
 
+                double above = memoi[sprinkler - 1][numSprinkler];
+                double right = memoi[sprinkler][numSprinkler - 1];
+                current = currentSprinkler.getStart() <= right && currentSprinkler.getEnd() >= right ? currentSprinkler.getEnd() : right;
+                current = max(current, above);
+
+                memoi[sprinkler][numSprinkler] = current;
                 if (current >= lengthToCover) {
-                    return count;
-                }
-                if (count == numSprinkler) {
-                    break;
+                    return numSprinkler + 1;
                 }
             }
         }
@@ -58,7 +56,7 @@ public class SprinklerCalculator {
             if (isNotContinuous(end, sprinklers.get(i).getStart())) {
                 return true;
             }
-            end = sprinklers.get(i).getEnd();
+            end = max(end, sprinklers.get(i).getEnd());
             i++;
         } while (i < sprinklers.size());
         return false;
