@@ -1,0 +1,78 @@
+commit 5e32f4e58b366ba4a6f3c45396813b8468679992
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sun Oct 22 21:16:45 2023 -0600
+
+    update scripts and README.md
+
+commit 7f63cdc5f697cc593c3a75d2702467d2a2c3d8c6
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sun Oct 22 21:05:12 2023 -0600
+
+    update test result
+
+commit 70977cc98b8e7c59145d6458a3a52870faa43b9d
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sun Oct 22 00:55:36 2023 -0600
+
+    add some tests
+    fix some bugs
+
+commit c86382e9e66bf434b6a8b0de850a9204aa8991c7
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sat Oct 21 15:17:45 2023 -0600
+
+    add some tests
+    fix some bugs
+
+commit 64c39c6eac6a52340a9d121947001d1777f141a0
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sat Oct 21 14:44:35 2023 -0600
+
+    correct some test
+    all tests passed
+
+commit c53a3d43c26e95695d8486f87208ae0f040acd57
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sat Oct 21 12:41:02 2023 -0600
+
+    refactor the garden to be an object
+    add more junit test (all fail currently)
+
+commit 68af00b0d5e1d03bd10ac411c6f536a3d62df40c
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sat Oct 21 12:01:16 2023 -0600
+
+    add libraries to run junit test
+    add script to run junit script
+    add test expected output
+
+commit 02c8eee42c01c6fd2abeb6e34c9444a3731af923
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sat Oct 21 11:28:33 2023 -0600
+
+    improve the toString method of SprinklerCalculator
+
+commit 579e066792b037db7ced9e12a537c61fef33cb18
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sat Oct 21 02:04:27 2023 -0600
+
+    add the object for sprinkler
+
+commit d50746f8a43786499ee0c0eaab91bc900c9a85cc
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sat Oct 21 01:47:14 2023 -0600
+
+    refactor the validation of inputs
+
+commit e1e75f7d130709349496f9207c58213fce1f1940
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sat Oct 21 01:26:10 2023 -0600
+
+    build basic structure of the repo
+    build basic inquire of inputs
+
+commit 408e3770e692ddbdc3bfe80f9b8f914535d529a7
+Author: trangnguyen3010 <66387098+trangnguyen3010@users.noreply.github.com>
+Date:   Sat Oct 21 00:33:04 2023 -0600
+
+    Initial commit
