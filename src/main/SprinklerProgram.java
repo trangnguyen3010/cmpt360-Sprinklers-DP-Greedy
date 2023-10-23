@@ -31,10 +31,14 @@ public class SprinklerProgram {
             }
         }
 
-        Garden calculator = new Garden(L, W, sprinklerLocations);
-        // Print all the input lines
-        System.out.println("Given input:");
-        System.out.println(calculator);
+        Garden garden = new Garden(L, W, sprinklerLocations);
+        // Print results to standard output
+        int result = SprinklerCalculator.calculateMinimumSprinklers(garden);
+        if (result == 0){
+            System.out.print("impossible");
+        } else {
+            System.out.print(result);
+        }
     }
 
     private static int getNextInt(final Scanner scanner) {
