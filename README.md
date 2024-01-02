@@ -68,3 +68,12 @@ Time: 0.032
 
 OK (23 tests)
 ```
+
+# Assignment Detail
+## Written Question
+![written question](writtenQuestion.png)
+
+Solution: [writtenSolution.pdf](writtenSolution.pdf)
+
+## Programming Question
+[programmingQuestion.pdf](programmingQuestion.pdf)
